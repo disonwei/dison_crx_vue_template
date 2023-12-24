@@ -1,33 +1,28 @@
-This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
+# 谷歌开发工具模版
 
-## Getting Started
 
-First, run the development server:
-
-```bash
-pnpm dev
-# or
-npm run dev
+使用 --target 标志指示 Plasmo 为特定浏览器和清单版本构建扩展：
+```shell
+plasmo dev --target=firefox-mv2
+plasmo build --target=firefox-mv2
 ```
 
-Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
 
-You can start editing the popup by modifying `popup.tsx`. It should auto-update as you make changes. To add an options page, simply add a `options.tsx` file to the root of the project, with a react component default exported. Likewise to add a content page, add a `content.ts` file to the root of the project, importing some module and do some logic, then reload the extension on your browser.
+要创建准备上传到网上商店的生产 zip 包，请使用 package 命令：
+```shell
+pnpm package
 
-For further guidance, [visit our Documentation](https://docs.plasmo.com/)
-
-## Making production build
-
-Run the following:
-
-```bash
-pnpm build
-# or
-npm run build
 ```
 
-This should create a production bundle for your extension, ready to be zipped and published to the stores.
+如果您想将构建和打包过程结合起来，请使用 --zip 标志和 build 命令
 
-## Submit to the webstores
+```shell
+pnpm build --zip
+```
 
-The easiest way to deploy your Plasmo extension is to use the built-in [bpp](https://bpp.browser.market) GitHub action. Prior to using this action however, make sure to build your extension and upload the first version to the store to establish the basic credentials. Then, simply follow [this setup instruction](https://docs.plasmo.com/framework/workflows/submit) and you should be on your way for automated submission!
+
+tabs 标签页
+- 用户首次安装您的扩展程序时显示的页面。
+- 用于身份验证的专用页面
+- 当您需要更精细的路由设置时
+目录: src/tabs
